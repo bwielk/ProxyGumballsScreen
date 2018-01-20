@@ -12,8 +12,9 @@ public class GumballMachine {
 	private int count = 0;
 	private double total = 0.0;
 	private String result;
+	private String location;
 	
-	public GumballMachine(int count){
+	public GumballMachine(String location, int count){
 		this.noQuarterState = new NoQuarterState(this);
 		this.hasQuarterState = new HasQuarterState(this);
 		this.soldState = new SoldState(this);
@@ -25,6 +26,7 @@ public class GumballMachine {
 		}else{
 			this.state = soldOutState;
 		}
+		this.location = location;
 		this.result = new String();
 	}
 	
@@ -35,6 +37,10 @@ public class GumballMachine {
 	
 	public double getTotal() {
 		return total;
+	}
+	
+	public String getLocation(){
+		return location;
 	}
 	
 	public int getCount() {
