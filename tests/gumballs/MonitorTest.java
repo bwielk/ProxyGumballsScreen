@@ -23,7 +23,7 @@ public class MonitorTest{
 	}
 
 	@Test
-	public void monitorGeneratesinforAboutAMachineAfterASale() {
+	public void monitorGeneratesinforAboutAMachineAfterASale1() {
 		machine1.acceptQuarter();
 		machine1.ejectQuarter();
 		machine1.acceptQuarter();
@@ -33,6 +33,20 @@ public class MonitorTest{
 		assertEquals(29, result.get("number of gums"));
 		assertEquals(0.25, result.get("current income"));
 		assertEquals(NoQuarterState.class, result.get("current state").getClass());
+	}
+	
+	@Test
+	public void monitorGeneratesInfformationAboutMachineAfterASale2(){
+		machine2.acceptQuarter();
+		machine2.turnCrank();
+		machine2.acceptQuarter();
+		machine2.turnCrank();
+		machine2.acceptQuarter();
+		HashMap result = monitor2.generateReport();
+		assertEquals("EH130QE", result.get("location"));
+		assertEquals(18, result.get("number of gums"));
+		assertEquals(0.75, result.get("current income"));
+		assertEquals(HasQuarterState.class, result.get("current state").getClass());
 	}
 
 }
