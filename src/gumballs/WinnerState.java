@@ -2,7 +2,7 @@ package gumballs;
 
 public class WinnerState implements State {
 	
-	private GumballMachine gumballMachine;
+	transient GumballMachine gumballMachine;
 	
 	public WinnerState(GumballMachine gumballMachine){
 		this.gumballMachine = gumballMachine;
