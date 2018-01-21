@@ -2,6 +2,7 @@ package gumballs;
 
 import static org.junit.Assert.*;
 
+import java.rmi.RemoteException;
 import java.util.HashMap;
 
 import org.junit.Before;
@@ -15,7 +16,7 @@ public class MonitorTest{
 	private Monitor monitor2;
 	
 	@Before
-	public void before(){
+	public void before() throws RemoteException{
 		machine1 = new GumballMachine("EH68SF", 30);
 		machine2 = new GumballMachine("EH130QE", 20);
 		monitor1 = new Monitor(machine1);

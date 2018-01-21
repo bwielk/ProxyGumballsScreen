@@ -1,6 +1,10 @@
 package gumballs;
 
-public class GumballMachine {
+import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
+import java.util.HashMap;
+
+public class GumballMachine extends UnicastRemoteObject implements GumballMachineRemote{
 	
 	private State noQuarterState;
 	private State hasQuarterState;
@@ -14,7 +18,7 @@ public class GumballMachine {
 	private String result;
 	private String location;
 	
-	public GumballMachine(String location, int count){
+	public GumballMachine(String location, int count) throws RemoteException {
 		this.noQuarterState = new NoQuarterState(this);
 		this.hasQuarterState = new HasQuarterState(this);
 		this.soldState = new SoldState(this);

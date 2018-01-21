@@ -4,5 +4,8 @@ import java.rmi.*;
 import java.util.*;
 
 public interface GumballMachineRemote extends Remote{
-	public HashMap generateReport() throws RemoteException;
+	public String getLocation() throws RemoteException;
+	public double getTotal() throws RemoteException;
+	public int getCount() throws RemoteException;
+	public State getState() throws RemoteException;
 }
